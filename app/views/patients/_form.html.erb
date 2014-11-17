@@ -1,0 +1,132 @@
+<%= form_for @patient, :html => { :class => "form-horizontal patient" } do |f| %>
+
+    <% if @patient.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @patient.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class='col-xs-4 col-md-6 col-lg-6' >
+
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :age, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :age, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:age]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :dob, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :dob, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:dob]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :mobile, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :mobile, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:mobile]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :gender, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :gender, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:gender]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:address]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :confirm_call, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :confirm_call, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:confirm_call]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :language, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :language, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:language]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :call_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :call_time, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:call_time]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :call_preference, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :call_preference, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:call_preference]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :ralative_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ralative_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:ralative_name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :relation_with_relative, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :relation_with_relative, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:relation_with_relative]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :relative_mobile, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :relative_mobile, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:relative_mobile]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :disease, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :disease, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:disease]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :health_status, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :health_status, :class => 'form-control' %>
+    </div>
+    <%= error_span(@patient[:health_status]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            patients_path, :class => 'btn btn-default' %>
+
+<% end %>
+</div>
