@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
+   autocomplete :patient, :name
 
   # GET /patients
   # GET /patients.json

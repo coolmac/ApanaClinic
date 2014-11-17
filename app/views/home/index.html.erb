@@ -7,4 +7,8 @@
                <button class= 'btn btn-warning ' type="submit" value="Search"><span class="glyphicon glyphicon-search"></span>Search</button>
            </div>
         </form>
+
+        form_for @product do |f|
+  f.autocomplete_field :brand_name, autocomplete_brand_name_products_path
+end
                
