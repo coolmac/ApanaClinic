@@ -122,6 +122,12 @@
     </div>
     <%= error_span(@patient[:health_status]) %>
   </div>
+  <div>
+  <label>My Avatar</label>
+     <%= image_tag(@patient.avatar_url) if @patient.avatar? %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
 
 
   <%= f.submit nil, :class => 'btn btn-primary' %>

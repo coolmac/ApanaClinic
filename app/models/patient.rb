@@ -11,6 +11,7 @@ class Patient < ActiveRecord::Base
 
 #validates_numericality_of :mobile, :only_integer =>true 
 has_and_belongs_to_many :doctors
+mount_uploader :avatar, AvatarUploader
 
 
 end

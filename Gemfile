@@ -47,3 +47,5 @@ gem 'jquery-ui-rails'
 
 # mysql as database for development
  gem 'mysql2'
+gem 'carrierwave'
+gem "rmagick"

@@ -7,9 +7,11 @@ class HomeController < ApplicationController
   	@patients= Patient.all
     @reports= Report.all
     @patient1 = Patient.first
+    @clinic= Clinic.first
+    @doctor= Doctor.first
   end
   def show
   	@patient= Patient.new
-  	@patients= Patient.all
+  	@patients= Patient.find(7)
   end
 end

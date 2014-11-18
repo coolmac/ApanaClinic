@@ -34,6 +34,7 @@
   <dd><%= @patient.disease %></dd>
   <dt><strong><%= model_class.human_attribute_name(:health_status) %>:</strong></dt>
   <dd><%= @patient.health_status %></dd>
+  <%= image_tag @patient.avatar_url.to_s %>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
