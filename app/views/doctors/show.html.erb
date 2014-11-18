@@ -1,0 +1,33 @@
+<%- model_class = Doctor -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @doctor.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @doctor.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mobile) %>:</strong></dt>
+  <dd><%= @doctor.mobile %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @doctor.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:education) %>:</strong></dt>
+  <dd><%= @doctor.education %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:specialization) %>:</strong></dt>
+  <dd><%= @doctor.specialization %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:experience) %>:</strong></dt>
+  <dd><%= @doctor.experience %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:consultation_fee) %>:</strong></dt>
+  <dd><%= @doctor.consultation_fee %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              doctors_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_doctor_path(@doctor), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              doctor_path(@doctor),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

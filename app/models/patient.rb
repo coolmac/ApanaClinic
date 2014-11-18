@@ -6,10 +6,11 @@ class Patient < ActiveRecord::Base
 #validates_numericality_of :age, :only_integer =>true, 
                         #  :greater_than_or_equal_to =>0, 
                         #  :message => "invalid age, it must be positive"
-validates_inclusion_of :health_status, :in => %w(Good Normal Bad Urgent ),
-                        :message => " only allow Good or Bad or Normal"
+#validates_inclusion_of :health_status, :in => %w(Good Normal Bad Urgent ),
+                       # :message => " only allow Good or Bad or Normal"
 
-validates_numericality_of :mobile, :only_integer =>true 
+#validates_numericality_of :mobile, :only_integer =>true 
+has_and_belongs_to_many :doctors
 
 
 end

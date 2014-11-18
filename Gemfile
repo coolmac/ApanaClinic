@@ -43,3 +43,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 gem 'rails4-autocomplete'
 gem 'jquery-ui-rails'
+
+
+# mysql as database for development
+ gem 'mysql2'

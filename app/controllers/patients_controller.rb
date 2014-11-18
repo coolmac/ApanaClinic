@@ -5,8 +5,9 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
+    @patients = Patient.includes(:doctors).all
   end
+    
 
   # GET /patients/1
   # GET /patients/1.json

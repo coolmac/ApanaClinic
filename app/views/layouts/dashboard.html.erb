@@ -21,18 +21,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#"><strong>Apna Clinic</strong></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav ">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">patients</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Help</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
+          
         </div>
       </div>
     </nav>
@@ -44,11 +42,23 @@
             
 
 
+           
+         <%= form_for @patient, :html => { :class => "form-horizontal patient" } do |f| %>
+            <div class="row">
+            <div class='col-md-6' >
+               <%= f.text_field :name, :class => 'form-control', :placeholder=> "Search..." %>
+    
+            </div>
+             <%= f.submit "search", :class => 'btn btn-success' %>
+            <%= link_to t('.new', :default => t("helpers.links.new")),
+            new_patient_path,
+            :class => 'btn btn-success' %>
 
-<%= form_for @patient  do |f| %>
-<%= f.autocomplete_field :patient_name, autocomplete_patient_name_patients_path %>
-<% end %>
 
+          </div>
+          <% end %>
+          </form>
+          
 
 
 
@@ -59,9 +69,12 @@
 <table class="table table-condensed table-hover">
   <thead>
     <tr class="warning">
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:age) %></th>
+      
+      <th> Patient </th>
+      
+      <th> Doctor</th>
+     
+     
       
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -69,9 +82,10 @@
   <tbody>
     <% @patients.each do |patient| %>
       <tr>
-        <td><%= link_to patient.id, patient_path(patient) %></td>
+        
         <td><%= patient.name %></td>
-        <td><%= patient.age %></td>
+        <td><%= patient.doctors.name %></td>
+        <
         
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -83,30 +97,9 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_patient_path,
-            :class => 'btn btn-primary' %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-        </div>
+ </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+          
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
