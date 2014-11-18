@@ -110,15 +110,22 @@
 
                     </br>
                     <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn btn-success">Address</button>
-                       <button type="button" class="btn btn-success">contact</button>
-                      <button type="button" class="btn btn-success">call History</button>
+                        <button type="button" class="btn btn-success" onclick="show('addressdiv'); hide('mobilediv'); hide('callhistorydiv');">Address</button>
+                       <button type="button" class="btn btn-success" onclick=" hide('addressdiv'); hide('callhistorydiv');show('mobilediv');">contact</button>
+                      <button type="button" class="btn btn-success" onclick=" hide('addressdiv'); hide('mobilediv');show('callhistorydiv');">call History</button>
                    </div>
-                   <div>
+                   <div id="mobilediv">
 
                       Mobile:<%= @patient1.mobile %></br>
                       Call Time:<%= @patient1.call_time %>
                     </div>
+                    <div id = "addressdiv">
+                      Address: <%= @patient1.address %>
+                    </div>
+                    <div id = "callhistorydiv">
+                      History: 
+                    </div>
+
 
             </div>
  <div class="row placeholders">
@@ -132,14 +139,21 @@
                       
                     </br>
                     <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn btn-success">Address</button>
-                       <button type="button" class="btn btn-success">contact</button>
-                      <button type="button" class="btn btn-success">call History</button>
+                        <button type="button" class="btn btn-success" onclick="show('addressdiv2'); hide('mobilediv2'); hide('callhistorydiv2');">Address</button>
+                       <button type="button" class="btn btn-success" onclick=" hide('addressdiv2'); hide('callhistorydiv2');show('mobilediv2');">contact</button>
+                      <button type="button" class="btn btn-success" onclick=" hide('addressdiv2'); hide('mobilediv2');show('callhistorydiv2');">call History</button>
                    </div>
-                   <div>
+                  
+                     <div id="mobilediv2">
 
-                      Mobile:<%= @patient1.mobile %></br>
+                      Mobile:<%= @patient1.relative_mobile %></br>
                       Call Time:<%= @patient1.call_time %>
+                    </div>
+                    <div id = "addressdiv2">
+                      Address: <%= @patient1.address %>
+                    </div>
+                    <div id = "callhistorydiv2">
+                      History: 
                     </div>
 
             </div>
@@ -147,7 +161,7 @@
         
 
 
-
+<div class="col-md-12"><hr></div>
 
           
 
@@ -187,21 +201,36 @@
   </tbody>
 </table>
 </div>
-<div>
-<div>Clinic:<%= @clinic.name %> &nbsp &nbsp&nbsp&nbsp&nbsp
-Date:<%= Date.today %></div>
-
-Doctor:<%= @doctor.name %> &nbsp &nbsp&nbsp&nbsp&nbsp
-Time:<%= Time.now%>
-
-
-</div>
 
 
 
 
 
 
+
+ <div class="col-md-12 col-md-offset-3">
+   <div>
+        Clinic:<%= @clinic.name %> &nbsp &nbsp&nbsp&nbsp&nbsp
+          Date:<%= Date.today %>
+     </div>
+
+      <div>
+          Doctor:<%= @doctor.name %> &nbsp &nbsp&nbsp&nbsp&nbsp
+          Time:<%= Time.now%>
+      </div>
+    </br> </br></br>
+
+ 
+
+
+     <label class="control-label">Prescription</label><input id="input-1" type="file" class="file">
+     <label class="control-label">Tests</label><input id="input-1" type="file" class="file">
+    
+    <label class="control-label">Medicines</label><input id="input-1" type="file" class="file">
+
+     </div>
+    
+    
 
 
 
