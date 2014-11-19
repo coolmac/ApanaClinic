@@ -36,14 +36,14 @@
     </nav>
 
     <div class="container-fluid">
-      <div class="row">
+     
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             
 
 
            
-         <%= form_for @patient, :html => { :class => "form-horizontal patient" } do |f| %>
+         <%= form_for @report, :html => { :class => "form-horizontal patient" } do |f| %>
             <div class="row">
             <div class='col-md-6' >
                <%= f.text_field :name, :class => 'form-control', :placeholder=> "Search..." %>
@@ -51,8 +51,10 @@
             </div>
              <%= f.submit "search", :class => 'btn btn-success' %>
             <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_patient_path,
+            new_report_path,
             :class => 'btn btn-success' %>
+
+
 
 
           </div>
@@ -62,102 +64,42 @@
 
 
 
-<%- model_class = Patient -%>
-<div class="page-header">
- 
-</div>
-<table class="table table-condensed table-hover">
+<%- model_class = Report -%>
+
+<table class="table table-condensed table-hover table-bordered">
   <thead>
-    <tr class="warning">
+    <tr>
       
-      <th> Patient </th>
-      
-      <th> Doctor</th>
-     
-     
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
       
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
-    <% @patients.each do |patient| %>
+    <% @reports.each do |report| %>
       <tr>
         
-        <td><%= patient.name %></td>
-        <td><%= patient.doctors.name %></td>
+        <td><%= report.name %></td>
+        <td><%= report.date %></td>
         
         
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_patient_path(patient), :class => 'btn btn-default btn-xs' %>
+                      edit_report_path(report), :class => 'btn btn-success btn-xs ' %>
           
         </td>
       </tr>
     <% end %>
   </tbody>
-</table>
-
- </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1" style="border:1px solid #ddd">
-
-                           <%= image_tag @patient1.avatar_url().to_s, :class=>"img-circle" %>
-             
-                     <span> <%= @patient1.name %></span>
-                     <span class= "toppad10"> Sex:<%= @patient1.gender %></span>
-                     <span> age: <%= @patient1.age %></span>
-                    </br>
-                    <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn btn-success" onclick="show('addressdiv'); hide('mobilediv'); hide('callhistorydiv');">Address</button>
-                       <button type="button" class="btn btn-success" onclick=" hide('addressdiv'); hide('callhistorydiv');show('mobilediv');">contact</button>
-                      <button type="button" class="btn btn-success" onclick=" hide('addressdiv'); hide('mobilediv');show('callhistorydiv');">call History</button>
-                   </div>
-                   <div id="mobilediv">
-
-                      Mobile:<%= @patient1.mobile %></br>
-                      Call Time:<%= @patient1.call_time %>
-                    </div>
-                    <div id = "addressdiv">
-                      Address: <%= @patient1.address %>
-                    </div>
-                    <div id = "callhistorydiv">
-                      History: 
-                    </div>
-
-
-            </div>
- <div class="row placeholders">
+</div>
+</div>
         
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 padding10 " style="border:1px solid #ddd ">
+          <strong>New Report</strong>
 
+         
 
-             
-                      <%= @patient1.ralative_name %></br>
-                      Relation:<%= @patient1.relation_with_relative %>
-                      
-                    </br>
-                    <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn btn-success" onclick="show('addressdiv2'); hide('mobilediv2'); hide('callhistorydiv2');">Address</button>
-                       <button type="button" class="btn btn-success" onclick=" hide('addressdiv2'); hide('callhistorydiv2');show('mobilediv2');">contact</button>
-                      <button type="button" class="btn btn-success" onclick=" hide('addressdiv2'); hide('mobilediv2');show('callhistorydiv2');">call History</button>
-                   </div>
-                  
-                     <div id="mobilediv2">
-
-                      Mobile:<%= @patient1.relative_mobile %></br>
-                      Call Time:<%= @patient1.call_time %>
-                    </div>
-                    <div id = "addressdiv2">
-                      Address: <%= @patient1.address %>
-                    </div>
-                    <div id = "callhistorydiv2">
-                      History: 
-                    </div>
-
-            </div>
-          </div>
-        
+  
 
 
 <div class="col-md-12"><hr></div>
@@ -208,17 +150,7 @@
 
 
  
-   <div>
-        Clinic:<%= @clinic.name %> &nbsp &nbsp&nbsp&nbsp&nbsp
-          Date:<%= Date.today %>
-     </div>
-
-      <div>
-          Doctor:<%= @doctor.name %> &nbsp &nbsp&nbsp&nbsp&nbsp
-          Time:<%= Time.now%>
-      </div>
-    </br> </br></br>
-
+   
  
 
 
@@ -230,13 +162,12 @@
      </div>
 
 
-     <% yield %>
+     
     
-    
 
 
 
-
+<%= link_to "Google", "https://www.google.com", :popup =>['new_window_name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes']%>
 
 
 

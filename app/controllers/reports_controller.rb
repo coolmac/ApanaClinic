@@ -1,10 +1,15 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
+  layout "dashboardreport"
 
   # GET /reports
   # GET /reports.json
   def index
     @reports = Report.all
+    @report= Report.first
+    @patient= @report.patient
+    @doctor= @report.doctor
+      @clinic= Clinic.first
   end
 
   # GET /reports/1
